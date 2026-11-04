@@ -1,5 +1,12 @@
 # Data Center Cost Intelligence & FP&A | Analytics Engineering Portfolio
 
+## 📊 Power BI Data Center Cost & Procurement Dashboard
+
+**Five-page editable Power BI Project (PBIP) published:** [Open dashboard source](powerbi/DataCenterCostProcurement.pbip) · [Read setup and modeling notes](powerbi/README.md).
+
+Includes CAPEX tracking, forecast CAPEX per IT MW, OFCI/CFCI procurement cost, multi-vendor total landed cost, and cash-flow forecasting using synthetic data. The project source is versioned in GitHub; an interactive published Power BI report is not hosted here. **Power BI Desktop open/render validation remains pending.**
+
+
 **Focus:** data center CAPEX, OFCI/CFCI sourcing, power/cooling cost normalization, procurement variance, vendor performance, financial forecasting and executive decisions.
 
 > **Portfolio demonstration, not employer work product.** All datasets, bids, assumptions and outcomes are synthetic. These are not claims of actual savings at Vantage Data Centers or any other company.
