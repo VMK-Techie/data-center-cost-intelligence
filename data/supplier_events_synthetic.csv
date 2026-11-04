@@ -1,0 +1,7 @@
+supplier,category,period,due_deliveries,on_time_deliveries,original_promise_met,inspected_units,ncr_units,responses_due,responses_within_sla,promised_lead_days,actual_lead_days
+Alpha Power,UPS,2026-Q1,20,18,17,50,2,20,16,90,96
+Beta Electric,Switchgear,2026-Q1,12,12,11,30,0,15,14,120,118
+Gamma Cooling,Chillers,2026-Q1,10,8,8,26,3,12,9,140,152
+Alpha Power,UPS,2026-Q2,20,19,18,48,1,20,19,90,91
+Beta Electric,Switchgear,2026-Q2,10,9,9,29,1,14,12,120,124
+Gamma Cooling,Chillers,2026-Q2,12,10,9,25,2,12,11,140,146
