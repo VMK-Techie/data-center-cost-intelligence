@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "00000000000000000014",
+  "position": {
+    "x": 330,
+    "y": 25,
+    "z": 20,
+    "height": 120,
+    "width": 285,
+    "tabOrder": 20
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VendorBids"
+                    }
+                  },
+                  "Property": "Avg Supplier Lead Time"
+                }
+              },
+              "queryRef": "VendorBids.Avg Supplier Lead Time",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
