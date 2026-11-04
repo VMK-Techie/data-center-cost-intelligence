@@ -1,0 +1,31 @@
+domain,metric,calculation,unit,grain_or_control
+Supplier,On-time delivery,Accepted deliveries on/before agreed required date / deliveries due × 100,percent,Delivery line per contract agreed date and report cutoff
+Supplier,Original commitment adherence,Deliveries received by original committed date / deliveries due × 100,percent,Freeze original promise date not latest rescheduled date
+Supplier,Average PO-to-receipt lead time,Average actual goods receipt date minus PO issue date,days,Line weighted by delivery or units consistently
+Supplier,Lead-time deterioration,Current period average actual lead time minus previous period average,days,Like-for-like category mix
+Supplier,Lead-time variance,Actual receipt date minus original committed receipt date,days,Positive indicates late
+Supplier,Non-conformance incidence,Rejected inspected units / inspected units × 100,percent,Use accepted NCR coding and inspection coverage
+Supplier,NCR closure cycle time,Average NCR closed timestamp minus NCR opened timestamp,days,Exclude still open from closed average and show open aging separately
+Supplier,Responsiveness SLA adherence,Replies within agreed SLA / replies due × 100,percent,Request-level ownership and due dates
+Supplier,Weighted supplier score,Sum normalized dimension score × approved dimension weight,0-100,Weight sum exactly 1 and threshold version-controlled
+Supplier,Scorecard coverage,Suppliers scored / eligible active suppliers × 100,percent,Specify category and review cadence
+Supplier,Corrective action closure,Corrective actions closed by due date / corrective actions due × 100,percent,Show overdue open action count
+Forecast,Supply shortfall units,MAX(0 demand required by need-by date minus confirmed deployable supply),units,Count only committed supply meeting requirement/spec/date
+Forecast,Supply coverage ratio,Confirmed supply by need-by date / forecast demand × 100,percent,Project equipment demand by site/category/time bucket
+Forecast,At-risk equipment units,Required units minus supplier confirmed available units by installation milestone floored at zero,units,Model on site and required date
+Forecast,Demand forecast WAPE,SUM(abs(actual units minus forecast units)) / SUM(abs(actual units)) × 100,percent,Aggregate by locked forecast vintage and comparable period
+Forecast,Demand forecast bias,(SUM forecast units minus SUM actual units) / SUM actual units × 100,percent,Positive overforecast; actual denominator must be nonzero
+Sourcing,RFP bid coverage,Valid compliant bids / qualified suppliers invited × 100,percent,Same sourcing event and cutoff; include zero bid events
+Sourcing,Sourcing cycle time,Award approval date minus RFP release date,days,Final approved award only
+Sourcing,Milestone on-time rate,Completed milestones on/before baseline due / milestones due × 100,percent,Exclude future milestones
+Sourcing,Award completion rate,Awarded sourcing events / events with decision due × 100,percent,Track no-award outcomes separately
+Sourcing,Contract expiration days,Contract expiration date minus snapshot date,days,Use effective extensions and renewals
+Sourcing,Bid price spread,(Highest compliant landed bid minus lowest compliant landed bid) / lowest bid × 100,percent,Comparable configuration and currency only
+Sourcing,Bid tabulation completion,Events with signed comparable bid tab / events requiring tab × 100,percent,Version normalized inclusions/exclusions
+Commodity,Escalation-adjusted material price,Fixed component + indexable component × current index / base index,USD,Apply only eligible commodity component and contract cap/floor
+Commodity,Escalation exposure,Adjusted contract cost minus baseline contract cost,USD,Specify steel copper aluminum index and effective date
+Reporting,Dataset freshness,As-of timestamp minus last successful load timestamp,hours,Timezone-aware and SLA threshold
+Reporting,ERP-to-procurement reconciliation gap,Procurement recognized actual spend minus Finance ledger actuals,USD,Reconcile posting date currency tax scope and invoice status
+Reporting,Automated refresh SLA pass,Successful on-time data refreshes / planned refreshes × 100,percent,Define scheduled refresh population
+Reporting,Metric lineage coverage,Published measures with documented sources and owner / published measures × 100,percent,Control definition revisions
+Reporting,Manual tracker reduction,Hours of previous manual reporting minus current manual effort,hours per cycle,Measure effort rather than claim unverified productivity improvement
