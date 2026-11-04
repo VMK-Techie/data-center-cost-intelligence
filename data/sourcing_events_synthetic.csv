@@ -1,0 +1,4 @@
+event_id,category,rfp_release,award_approval,qualified_invited,compliant_bids,award_status,contract_expiration,required_units,confirmed_available_before_need
+RFQ-001,UPS,2026-01-05,2026-02-12,5,3,Awarded,2027-02-28,12,10
+RFQ-002,Switchgear,2026-02-01,2026-03-18,4,3,Awarded,2027-01-31,18,15
+RFQ-003,Chillers,2026-03-10,2026-04-25,6,4,Awarded,2027-04-30,8,6
