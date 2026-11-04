@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "00000000000000000013",
+  "position": {
+    "x": 20,
+    "y": 25,
+    "z": 19,
+    "height": 120,
+    "width": 285,
+    "tabOrder": 19
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "VendorBids"
+                    }
+                  },
+                  "Property": "Total Landed Bid"
+                }
+              },
+              "queryRef": "VendorBids.Total Landed Bid",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
