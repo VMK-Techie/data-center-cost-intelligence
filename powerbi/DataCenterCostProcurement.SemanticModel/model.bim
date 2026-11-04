@@ -1,0 +1,339 @@
+{
+  "name": "DataCenterCostProcurement",
+  "compatibilityLevel": 1601,
+  "model": {
+    "culture": "en-US",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "tables": [
+      {
+        "name": "Projects",
+        "columns": [
+          {
+            "name": "SiteID",
+            "dataType": "string",
+            "sourceColumn": "SiteID",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Site",
+            "dataType": "string",
+            "sourceColumn": "Site",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ITMW",
+            "dataType": "int64",
+            "sourceColumn": "ITMW",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BudgetUSD",
+            "dataType": "decimal",
+            "sourceColumn": "BudgetUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ActualUSD",
+            "dataType": "decimal",
+            "sourceColumn": "ActualUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OpenCommitmentsUSD",
+            "dataType": "decimal",
+            "sourceColumn": "OpenCommitmentsUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "UncommittedETCUSD",
+            "dataType": "decimal",
+            "sourceColumn": "UncommittedETCUSD",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Projects",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "let\n    Source = #table(type table [SiteID = text, Site = text, ITMW = Int64.Type, BudgetUSD = number, ActualUSD = number, OpenCommitmentsUSD = number, UncommittedETCUSD = number], {\n        {\"DC-01\", \"West Campus\", 24, 250000000, 140000000, 81000000, 36000000},\n        {\"DC-02\", \"East Campus\", 12, 126000000, 58000000, 39000000, 26000000},\n        {\"DC-03\", \"North Campus\", 18, 183000000, 108000000, 49000000, 33000000},\n        {\"DC-04\", \"South Campus\", 30, 312000000, 162000000, 97000000, 61000000}\n    })\nin\n    Source"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Approved Budget",
+            "expression": "SUM(Projects[BudgetUSD])",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Actual Spend",
+            "expression": "SUM(Projects[ActualUSD])",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Open Commitments",
+            "expression": "SUM(Projects[OpenCommitmentsUSD])",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Uncommitted ETC",
+            "expression": "SUM(Projects[UncommittedETCUSD])",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "EAC",
+            "expression": "[Actual Spend] + [Open Commitments] + [Uncommitted ETC]",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Variance at Completion",
+            "expression": "[Approved Budget] - [EAC]",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Forecast Overrun",
+            "expression": "[EAC] - [Approved Budget]",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Cost per MW",
+            "expression": "DIVIDE([EAC], SUM(Projects[ITMW]))",
+            "formatString": "$#,0;($#,0)"
+          },
+          {
+            "name": "Forecast Variance %",
+            "expression": "DIVIDE([Variance at Completion], [Approved Budget])",
+            "formatString": "0.0%;-0.0%"
+          },
+          {
+            "name": "Budget Utilization",
+            "expression": "DIVIDE([Actual Spend], [Approved Budget])",
+            "formatString": "0.0%"
+          }
+        ]
+      },
+      {
+        "name": "Equipment",
+        "columns": [
+          {
+            "name": "Site",
+            "dataType": "string",
+            "sourceColumn": "Site",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ownership",
+            "dataType": "string",
+            "sourceColumn": "Ownership",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EquipmentType",
+            "dataType": "string",
+            "sourceColumn": "EquipmentType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BaselineLandedUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "BaselineLandedUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ProposedLandedUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "ProposedLandedUnitUSD",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Equipment",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "let\n    Source = #table(type table [Site = text, Ownership = text, EquipmentType = text, Quantity = Int64.Type, BaselineLandedUnitUSD = number, ProposedLandedUnitUSD = number], {\n        {\"West Campus\", \"OFCI\", \"UPS\", 4, 4205000, 4010000},\n        {\"West Campus\", \"OFCI\", \"Generators\", 8, 3850000, 3760000},\n        {\"West Campus\", \"OFCI\", \"Switchgear\", 12, 760000, 725000},\n        {\"West Campus\", \"OFCI\", \"Transformers\", 8, 640000, 627500},\n        {\"West Campus\", \"CFCI\", \"Chillers\", 6, 1825000, 1770000},\n        {\"West Campus\", \"CFCI\", \"CRAH Units\", 36, 118000, 111000},\n        {\"East Campus\", \"OFCI\", \"UPS\", 2, 4205000, 4050000},\n        {\"East Campus\", \"OFCI\", \"Generators\", 4, 3900000, 3810000},\n        {\"North Campus\", \"CFCI\", \"Cooling Distribution\", 1, 12000000, 11500000},\n        {\"South Campus\", \"OFCI\", \"Power Distribution\", 1, 30000000, 29300000}\n    })\nin\n    Source"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Baseline Equipment Cost",
+            "expression": "SUMX(Equipment, Equipment[Quantity] * Equipment[BaselineLandedUnitUSD])",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Proposed Equipment Cost",
+            "expression": "SUMX(Equipment, Equipment[Quantity] * Equipment[ProposedLandedUnitUSD])",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Equipment Cost Avoidance",
+            "expression": "[Baseline Equipment Cost] - [Proposed Equipment Cost]",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Equipment Avoidance %",
+            "expression": "DIVIDE([Equipment Cost Avoidance], [Baseline Equipment Cost])",
+            "formatString": "0.0%"
+          }
+        ]
+      },
+      {
+        "name": "VendorBids",
+        "columns": [
+          {
+            "name": "BidPackage",
+            "dataType": "string",
+            "sourceColumn": "BidPackage",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Vendor",
+            "dataType": "string",
+            "sourceColumn": "Vendor",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Quantity",
+            "dataType": "int64",
+            "sourceColumn": "Quantity",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BaseUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "BaseUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FreightUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "FreightUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DutiesUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "DutiesUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TariffsUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "TariffsUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EscalationUnitUSD",
+            "dataType": "decimal",
+            "sourceColumn": "EscalationUnitUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LeadTimeDays",
+            "dataType": "int64",
+            "sourceColumn": "LeadTimeDays",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "QualityScore",
+            "dataType": "int64",
+            "sourceColumn": "QualityScore",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "VendorBids",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "let\n    Source = #table(type table [BidPackage = text, Vendor = text, Quantity = Int64.Type, BaseUnitUSD = number, FreightUnitUSD = number, DutiesUnitUSD = number, TariffsUnitUSD = number, EscalationUnitUSD = number, LeadTimeDays = Int64.Type, QualityScore = Int64.Type], {\n        {\"West Campus UPS\", \"Vendor A\", 4, 3900000, 120000, 50000, 100000, 35000, 28, 85},\n        {\"West Campus UPS\", \"Vendor B\", 4, 3650000, 130000, 50000, 155000, 25000, 39, 91},\n        {\"West Campus UPS\", \"Vendor C\", 4, 3550000, 160000, 50000, 205000, 100000, 55, 75},\n        {\"East Campus Generators\", \"Vendor A\", 4, 3450000, 190000, 50000, 110000, 50000, 32, 89},\n        {\"East Campus Generators\", \"Vendor B\", 4, 3340000, 210000, 50000, 140000, 70000, 46, 82}\n    })\nin\n    Source"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Landed Bid",
+            "expression": "SUMX(VendorBids, VendorBids[Quantity] * (VendorBids[BaseUnitUSD] + VendorBids[FreightUnitUSD] + VendorBids[DutiesUnitUSD] + VendorBids[TariffsUnitUSD] + VendorBids[EscalationUnitUSD]))",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Avg Supplier Lead Time",
+            "expression": "AVERAGE(VendorBids[LeadTimeDays])",
+            "formatString": "0"
+          },
+          {
+            "name": "Avg Quality Score",
+            "expression": "AVERAGE(VendorBids[QualityScore])",
+            "formatString": "0.0"
+          }
+        ]
+      },
+      {
+        "name": "CashFlow",
+        "columns": [
+          {
+            "name": "Month",
+            "dataType": "string",
+            "sourceColumn": "Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ForecastUSD",
+            "dataType": "decimal",
+            "sourceColumn": "ForecastUSD",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ActualUSD",
+            "dataType": "decimal",
+            "sourceColumn": "ActualUSD",
+            "summarizeBy": "sum"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CashFlow",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": "let\n    Source = #table(type table [Month = text, ForecastUSD = number, ActualUSD = number], {\n        {\"2026-01\", 16000000, 15100000},\n        {\"2026-02\", 18000000, 19300000},\n        {\"2026-03\", 19500000, 20100000},\n        {\"2026-04\", 21000000, 21800000},\n        {\"2026-05\", 23000000, 23300000},\n        {\"2026-06\", 26000000, 24700000},\n        {\"2026-07\", 27000000, 0},\n        {\"2026-08\", 29000000, 0},\n        {\"2026-09\", 28000000, 0},\n        {\"2026-10\", 26000000, 0},\n        {\"2026-11\", 23000000, 0},\n        {\"2026-12\", 20500000, 0}\n    })\nin\n    Source"
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Forecast Cash",
+            "expression": "SUM(CashFlow[ForecastUSD])",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Actual Cash",
+            "expression": "SUM(CashFlow[ActualUSD])",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Cash Forecast Gap",
+            "expression": "[Actual Cash] - [Forecast Cash]",
+            "formatString": "$#,0"
+          },
+          {
+            "name": "Forecast Remaining",
+            "expression": "SUMX(FILTER(CashFlow, CashFlow[ActualUSD] = 0), CashFlow[ForecastUSD])",
+            "formatString": "$#,0"
+          }
+        ]
+      }
+    ]
+  }
+}
