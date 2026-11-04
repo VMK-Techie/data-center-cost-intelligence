@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "0000000000000000001b",
+  "position": {
+    "x": 950,
+    "y": 25,
+    "z": 27,
+    "height": 120,
+    "width": 285,
+    "tabOrder": 27
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CashFlow"
+                    }
+                  },
+                  "Property": "Forecast Remaining"
+                }
+              },
+              "queryRef": "CashFlow.Forecast Remaining",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
