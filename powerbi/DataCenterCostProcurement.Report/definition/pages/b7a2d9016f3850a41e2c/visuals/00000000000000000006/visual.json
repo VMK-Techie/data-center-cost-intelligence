@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "00000000000000000006",
+  "position": {
+    "x": 650,
+    "y": 175,
+    "z": 6,
+    "height": 490,
+    "width": 590,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Equipment"
+                    }
+                  },
+                  "Property": "Ownership"
+                }
+              },
+              "queryRef": "Equipment.Ownership",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Equipment"
+                    }
+                  },
+                  "Property": "Baseline Equipment Cost"
+                }
+              },
+              "queryRef": "Equipment.Baseline Equipment Cost",
+              "active": true
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Equipment"
+                    }
+                  },
+                  "Property": "Proposed Equipment Cost"
+                }
+              },
+              "queryRef": "Equipment.Proposed Equipment Cost",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
