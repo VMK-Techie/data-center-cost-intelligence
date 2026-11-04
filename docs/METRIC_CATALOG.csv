@@ -1,0 +1,52 @@
+domain,metric,formula,unit,governance_note
+CAPEX,Cost per MW IT,Total eligible project CAPEX / commissioned IT MW,USD/MW,Use same scope and capacity basis across sites
+CAPEX,Cost per kW IT,Total eligible project CAPEX / (commissioned IT MW × 1000),USD/kW,"IT load basis, not utility feed rating"
+CAPEX,CAPEX variance,Actual CAPEX − approved budget,USD,Positive indicates over budget
+CAPEX,CAPEX variance %,(Actual CAPEX − approved budget) / approved budget,%,Period and scope aligned
+CAPEX,Budget utilization,Actual spend / approved budget,%,Not synonymous with cost completion
+CAPEX,Committed exposure,Actuals + open commitments,USD,Exclude invoiced portion from open commitments
+CAPEX,Uncommitted budget,Approved budget − actuals − open commitments,USD,Before contingency and forecast changes
+CAPEX,Estimate at completion (EAC),Actuals + open commitments + estimate to complete for uncommitted work,USD,Prevent double counting commitments
+CAPEX,Variance at completion,Approved budget − EAC,USD,Positive indicates forecast underrun
+CAPEX,Cost to complete,EAC − actuals,USD,Includes expected outstanding obligations
+CAPEX,Contingency drawdown,Contingency used / original contingency,%,Separate risk reserve from base budget
+CAPEX,Change order rate,Approved change order value / original contract value,%,Do not include pending changes as approved
+CAPEX,Cost performance index,Earned value / actual cost,ratio,Requires objective earned value method
+CAPEX,Schedule performance index,Earned value / planned value,ratio,Requires earned-value baselines
+OFCI/CFCI,OFCI spend share,OFCI equipment CAPEX / total equipment CAPEX,%,Categorize owner-furnished vs contractor-furnished consistently
+OFCI/CFCI,CFCI spend share,CFCI equipment CAPEX / total equipment CAPEX,%,Avoid equipment vs installation scope overlap
+OFCI/CFCI,Total landed cost,Base equipment + freight + duties + tariffs + escalation + other nonrecoverable acquisition costs,USD,Taxes and credits depend on contract/accounting policy
+OFCI/CFCI,Landed cost per unit,Total landed cost / accepted equipment units,USD/unit,Normalize equivalent configurations
+OFCI/CFCI,Installed cost per MW,Relevant equipment and install cost / IT MW supported,USD/MW,Use commissioned supported capacity
+OFCI/CFCI,Cooling cost per ton,Cooling system installed cost / design refrigeration tons,USD/ton,Refrigeration tons not weight; document redundancy
+OFCI/CFCI,UPS cost per supported kW,UPS installed cost / supported critical load kW,USD/kW,"Specify N, N+1, or 2N redundancy"
+OFCI/CFCI,Generator cost per supported kW,Generator landed/installed cost / supported critical load kW,USD/kW,Normalize capacity and redundancy
+OFCI/CFCI,Power distribution cost per kW,PDU/switchgear/transformer/busway installed cost / supported kW,USD/kW,Avoid overlapping component packages
+Procurement,Purchase price variance,(Actual unit price − baseline unit price) × purchased quantity,USD,Positive adverse cost; baseline version controlled
+Procurement,Unit price trend,(Current weighted avg unit price / prior weighted avg unit price) − 1,%,Compare like-for-like equipment specifications
+Procurement,Realized savings,Approved baseline cost − actual paid cost (comparable scope),USD,Only after purchase and verification
+Procurement,Cost avoidance,Validated forecast cost without intervention − forecast cost with intervention,USD,Not booked as realized savings
+Procurement,Supplier on-time delivery,Deliveries on/before confirmed date / total due deliveries,%,Define accepted delivery and exclusions
+Procurement,Supplier lead time,Actual receipt date − PO release date,days,Use calendar or working days consistently
+Procurement,Defect rate,Rejected units / inspected units,%,Document inspection acceptance criteria
+Procurement,Supplier spend concentration,Spend with top N vendors / total spend,%,Scope time range and supplier parent mapping
+Procurement,Tariff exposure,Tariff-applicable customs value × expected tariff rate,USD,Scenario estimate; rates depend on origin/classification
+FP&A,Forecast accuracy,1 − abs(actual − forecast) / abs(actual),ratio,Undefined when actual zero; may be negative
+FP&A,Forecast bias,(Forecast − actual) / actual,%,Positive means overforecasting
+FP&A,Monthly cash flow,Cash payments scheduled within month,USD,Cash basis distinct from accrual actuals
+FP&A,Cumulative cash flow,Sum of cash payments through period,USD,Include deposits and milestones
+FP&A,Cash flow variance,Actual cash paid − forecast cash paid,USD,Positive reflects greater outflow
+FP&A,Budget vs committed vs actual,Approved budget; open PO exposure; posted actuals,USD,"Use distinct measures, not one blended number"
+FP&A,Procurement escalation,Baseline open purchase value × expected escalation rate,USD,Scenario assumption not actual bill
+Capacity,IT load utilization,Measured IT peak/load kW / commissioned available IT kW,%,Make clear instantaneous vs average vs peak
+Capacity,Stranded capacity,Commissioned IT kW − deployable IT kW,kW,Requires limiting power/cooling/network constraint
+Capacity,Power Usage Effectiveness (PUE),Total facility energy kWh / IT equipment energy kWh,ratio,Use matched measurement boundary and period
+Capacity,Data center infrastructure efficiency,IT energy kWh / facility energy kWh,ratio,"Reciprocal of PUE, sometimes shown as percent"
+Capacity,Annual electricity cost,Metered facility kWh × blended tariff + fixed/demand charges,USD,Demand charges separately modeled
+Capacity,Energy cost per IT MW-year,Annual electricity cost / average delivered IT MW,USD/MW-year,Period and load basis must match
+Capacity,Cooling energy share,Cooling-system kWh / facility kWh,%,Ensure cooling submeter coverage
+Capacity,Water usage effectiveness,Site water used (L) / IT equipment energy (kWh),L/kWh,Site vs source water boundary identified
+Capacity,Availability,(Scheduled service time − unplanned outage time) / scheduled service time,%,Document exclusions and definition
+TCO,Five-year TCO,Initial CAPEX + five-year OPEX + refresh costs − residual value,USD,Nominal vs discounted cost separately
+TCO,Net present cost,Initial CAPEX + sum(net annual cash outflows / (1+r)^year),USD,Discount rate and time convention explicit
+TCO,Unit economic delta,(Option A TCO − Option B TCO) / comparison MW,USD/MW,Only comparable service levels
