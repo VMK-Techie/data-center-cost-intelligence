@@ -1,0 +1,42 @@
+{
+  "name": "DataCenterBase",
+  "dataColors": [
+    "#2DD4BF",
+    "#60A5FA",
+    "#A78BFA",
+    "#F59E0B",
+    "#FB7185",
+    "#94A3B8"
+  ],
+  "background": "#0B1220",
+  "foreground": "#E2E8F0",
+  "tableAccent": "#2DD4BF",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#142138"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#E2E8F0"
+              }
+            },
+            "fontSize": 12
+          }
+        ]
+      }
+    }
+  }
+}
