@@ -7,6 +7,20 @@
 Includes CAPEX tracking, forecast CAPEX per IT MW, OFCI/CFCI procurement cost, multi-vendor total landed cost, and cash-flow forecasting using synthetic data. The project source is versioned in GitHub; an interactive published Power BI report is not hosted here. **Power BI Desktop open/render validation remains pending.**
 
 
+## Nscale OFCI Business Analytics — Supplier & Sourcing Extensions
+
+**Job-aligned extension:** In addition to the core cost-per-MW, CAPEX, EAC, OFCI/CFCI and vendor landed-cost analytics, this repository now models operational metrics expected in senior data-center equipment sourcing roles:
+
+- **Supplier performance:** on-time delivery, frozen original commitment adherence, nonconformance incidence, response-time SLA compliance, corrective-action closure and a configurable weighted supplier scorecard.
+- **Equipment supply / demand:** confirmed deployable supply coverage, units at risk, supply shortfall by installation milestone, and demand forecast WAPE/bias.
+- **Sourcing pipeline:** RFP bid coverage, sourcing cycle time, award progress, milestone adherence, bid normalization and contract-expiry risk.
+- **Commercial risk:** weighted commodity-index price escalation for eligible cost components, along with tariffs, freight and total landed-cost exposure.
+- **Reporting governance:** ERP/Finance reconciliation, dataset freshness, reporting refresh SLA, metric lineage and manual reporting effort reduction.
+
+**[Read the detailed Nscale role-alignment guide](docs/NSCALE_ROLE_ALIGNMENT.md)** · **[30 additional KPI formulas](docs/NSCALE_KPI_ADDITIONS.csv)** · **[Python implementation](src/nscale_procurement_metrics.py)** · **[Synthetic sourcing events](data/sourcing_events_synthetic.csv)** · **[Supplier performance dataset](data/supplier_events_synthetic.csv)** · **[Unit tests](tests/test_nscale_procurement_metrics.py)**.
+
+An illustrative supplier score combines delivery (30%), quality (30%), response SLA (15%), original promise adherence (15%), and landed-cost competitiveness (10%). The weights and test data are hypothetical **portfolio assumptions, not Nscale's actual policies or metrics**. The current Power BI project pages have not yet been extended with these new supplier/sourcing measures; implementation and DAX examples are provided separately.
+
 ## Dashboard previews — five executive analytics pages
 
 The five visual previews below are **illustrative recreations made from synthetic data**, not screenshots exported from a validated Power BI Desktop session. The [editable PBIP report source](powerbi/DataCenterCostProcurement.pbip) is in the same repository. Each page is designed to connect a financial metric to a decision a data center executive or FP&A leader must make.
