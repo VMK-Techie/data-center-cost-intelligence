@@ -7,6 +7,47 @@
 Includes CAPEX tracking, forecast CAPEX per IT MW, OFCI/CFCI procurement cost, multi-vendor total landed cost, and cash-flow forecasting using synthetic data. The project source is versioned in GitHub; an interactive published Power BI report is not hosted here. **Power BI Desktop open/render validation remains pending.**
 
 
+## Dashboard previews — five executive analytics pages
+
+The five visual previews below are **illustrative recreations made from synthetic data**, not screenshots exported from a validated Power BI Desktop session. The [editable PBIP report source](powerbi/DataCenterCostProcurement.pbip) is in the same repository. Each page is designed to connect a financial metric to a decision a data center executive or FP&A leader must make.
+
+### 1. Executive Overview — portfolio capital exposure
+![Executive Overview](screenshots/executive-overview.svg)
+
+**Purpose:** Show leadership where capital is allocated, how far projects are from completion, and which sites need intervention. **Key KPIs:** approved CAPEX, actuals, EAC, forecast overrun, forecast cost per commissioned IT MW, and OFCI/CFCI equipment spend. **Decision enabled:** prioritize the sites with the largest forecast variances before approving additional capital.
+
+### 2. CAPEX Performance & Cost per MW — project financial control
+![CAPEX & Cost per MW](screenshots/capex-cost-per-mw.svg)
+
+**Purpose:** Reconcile spend, commitments, and remaining work into a forward-looking cost estimate. **Key KPIs:** actual spend, net open purchase commitments, uncommitted ETC, EAC, variance at completion and normalized $/MW. **Decision enabled:** identify why a site has drifted above budget and whether mitigation or contingency is required.
+
+**Calculation:** EAC = Actuals + net open commitments + uncommitted ETC; forecast cost per MW = EAC / commissioned IT MW.
+
+### 3. OFCI / CFCI Equipment — landed cost intelligence
+![OFCI/CFCI Equipment](screenshots/ofci-cfci-equipment.svg)
+
+**Purpose:** Compare baseline versus proposed procurement cost for UPS, generators, switchgear, transformers, chillers, CRAH units and distribution equipment. **Key KPIs:** quantity-adjusted landed cost by equipment type and ownership model, modeled cost reduction and potential cost avoidance. **Decision enabled:** focus sourcing negotiations on high-value equipment packages without reducing redundancy or specification compliance.
+
+### 4. Supplier Comparison — procurement trade-offs
+![Supplier Comparison](screenshots/vendor-comparison.svg)
+
+**Purpose:** Explain the trade-off between vendor landed cost, quality and delivery timing. **Key KPIs:** bid cost inclusive of freight, duties, tariffs and escalation; lead times; quality indicators. **Decision enabled:** shortlist suppliers **within the same bid package** rather than selecting the apparently lowest aggregate vendor cost across incomparable packages.
+
+**Calculation:** Total landed bid = Quantity × (unit base + unit freight + unit duties + unit tariffs + unit escalation). Cost avoidance is potential until commercially validated and is **not realized savings**.
+
+### 5. Cash Flow Forecast — funding and payment exposure
+![Cash Flow Forecast](screenshots/cash-flow-forecast.svg)
+
+**Purpose:** Compare recorded payments with scheduled outflows and expose upcoming liquidity needs. **Key KPIs:** monthly forecast, recorded actual cash, completed-period variance and future scheduled cash payments. **Decision enabled:** sequence procurement payment milestones and provide FP&A or treasury a credible funding outlook.
+
+**Controls:** Future months without recorded payments must be treated as *not yet reported*, not as zero spending. Accrual CAPEX and cash flow have different measurement bases.
+
+### Skills demonstrated
+**Power BI / DAX · SQL · Python · Microsoft Fabric modeling · Data-center CAPEX / $ per MW · OFCI/CFCI sourcing · FP&A · Vendor landed cost · Cash-flow forecasting · Executive reporting**
+
+> **Data integrity:** Every number and site is fictional. These previews demonstrate analytical methods, not audited employer savings. The PBIP project has not been opened and validated in Power BI Desktop. No confidential vendor pricing, purchase orders or actual employer project details are used.
+
+
 **Focus:** data center CAPEX, OFCI/CFCI sourcing, power/cooling cost normalization, procurement variance, vendor performance, financial forecasting and executive decisions.
 
 > **Portfolio demonstration, not employer work product.** All datasets, bids, assumptions and outcomes are synthetic. These are not claims of actual savings at Vantage Data Centers or any other company.
