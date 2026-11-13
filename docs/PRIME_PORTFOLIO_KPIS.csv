@@ -1,0 +1,27 @@
+domain,metric,definition_and_formula,unit,grain_and_quality_control
+Portfolio Finance,Portfolio EAC,SUM project latest approved forecast EAC,USD,one version per project as-of date
+Portfolio Finance,Portfolio VAC,SUM approved project budget minus SUM forecast EAC,USD,consistent project scope and currency
+Portfolio Finance,Portfolio VAC percent,(SUM approved budget minus SUM EAC) / SUM approved budget,ratio,zero-budget projects excluded or flagged
+Portfolio Finance,Portfolio cost per IT MW,SUM EAC / SUM commissioned IT MW,USD per MW,capacity-weighted aggregation; MW greater than zero
+Portfolio Delivery,Schedule variance days,Forecast finish minus approved baseline finish,days,positive indicates late; date baseline version controlled
+Portfolio Delivery,Milestone on-time rate,Milestones completed on time divided by milestones due,ratio,milestones due by reporting cutoff only
+Portfolio Delivery,Milestone completion rate,Milestones completed divided by milestones planned due by cutoff,ratio,do not include undued future milestones
+Portfolio Delivery,Critical overdue risks,Count open critical risks with due date before as-of date,count,risk log must have explicit owner and due date
+Portfolio Delivery,At-risk project share,Projects crossing approved risk criteria divided by active projects,ratio,criteria versioned and transparent
+Portfolio Delivery,Status freshness days,As-of date minus latest validated status update date,days,record approved submission not merely edit time
+Reporting Governance,Required field completeness,Non-null required reporting fields divided by expected required fields,ratio,define denominator by project snapshot
+Reporting Governance,Metric definition coverage,Published KPIs with approved definitions divided by all published KPIs,ratio,owner and definition version required
+Reporting Governance,Finance reconciliation variance,Operations project actuals minus Finance GL actuals,USD,match cutoff currency accounting scope and posted status
+Reporting Governance,Dashboard refresh success,Successful scheduled refreshes divided by scheduled refreshes,ratio,exclude intentional cancellations only by documented policy
+Reporting Governance,Data pipeline incident rate,Failed production pipelines divided by production runs,ratio,log retry policy and exception handling
+BI Delivery,Intake triage SLA,Requests triaged within agreed SLA divided by requests requiring triage,ratio,agreed submission completeness and working calendar
+BI Delivery,Backlog aging,As-of date minus request created date for unresolved requests,days,include waiting/on-hold state separately
+BI Delivery,Delivery cycle time,Release date minus work-start date,days,use same start and end state across work types
+BI Delivery,Throughput,Accepted completed requests during reporting period,count,exclude canceled or reopened work pending reacceptance
+BI Delivery,Work in progress,Count active requests not yet completed,count,define in-progress states
+BI Delivery,Defect escape rate,Production defects attributed to released work divided by releases,ratio,report absolute counts too
+BI Delivery,Stakeholder acceptance rate,Deliverables accepted first review divided by deliverables reviewed,ratio,avoid treating no response as accepted
+Leadership,One-on-one completion,Completed scheduled one-on-ones divided by planned one-on-ones,ratio,aggregate without publishing personal employee information
+Leadership,Development plan coverage,Team members with active development goals divided by eligible team members,ratio,do not publish identifiable HR information
+Leadership,Action closure adherence,Leadership or retrospective actions closed by agreed due date divided by actions due,ratio,report cohort and follow-up owner
+Leadership,Capacity allocation,Planned delivery effort by category divided by total planned team effort,ratio,planning tool not individual productivity ranking
