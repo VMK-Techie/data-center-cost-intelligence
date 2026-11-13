@@ -7,6 +7,26 @@
 Includes CAPEX tracking, forecast CAPEX per IT MW, OFCI/CFCI procurement cost, multi-vendor total landed cost, and cash-flow forecasting using synthetic data. The project source is versioned in GitHub; an interactive published Power BI report is not hosted here. **Power BI Desktop open/render validation remains pending.**
 
 
+## Prime Data Centers — Reporting & Data Analytics Management
+
+**Targeted portfolio alignment: [Sr. Manager, Reporting & Data Analytics](https://www.linkedin.com/jobs/view/4489051665/)** · Business Operations · Project-to-portfolio reporting · Executive insights
+
+This repository demonstrates an **enterprise reporting operating model**, connecting project-level budget, schedule, milestones and risk to standardized portfolio reporting for Finance, PMO, Operations Excellence and business executives. Alongside the existing data-center cost and procurement dashboards, I added synthetic portfolio status data, governed KPI specifications and automated reference calculations.
+
+**Explore the role-specific pages:**
+
+- **[Prime role fit, metrics and executive decision examples](docs/PRIME_ROLE_ALIGNMENT.md)** — mapping from job responsibilities to working analytics examples.
+- **[How I Lead and Manage BI Teams — Separate Leadership Page](docs/TEAM_LEADERSHIP_AND_OPERATING_MODEL.md)** — strategy, transparent prioritization, ownership, 1:1 coaching, quality gates, stakeholder engagement, incident escalation, recurring cadence and 30/60/90-day plan.
+- **[Enterprise reporting standards and platform governance](docs/PRIME_REPORTING_GOVERNANCE.md)** — project-to-portfolio contracts, metric ownership, certified semantic models, refresh reliability and release controls.
+- **[Project, delivery and leadership KPI dictionary](docs/PRIME_PORTFOLIO_KPIS.csv)** · **[Illustrative management scorecard](docs/TEAM_OPERATING_SCORECARD.csv)**.
+- **[Synthetic project records](data/prime_projects_synthetic.csv)** · **[Python portfolio calculations](src/prime_portfolio_metrics.py)** · **[Unit tests](tests/test_prime_portfolio_metrics.py)**.
+
+**Executive reporting examples:** EAC and variance at completion, capacity-weighted CAPEX per MW, project schedule variance, on-time milestone rates, overdue critical risks, project status freshness, reporting reconciliation and BI delivery quality.
+
+**Management philosophy:** Business-first and outcome-driven. Define the decision and KPI owner first, prioritize intake using impact and effort, empower technical owners with quality standards, coach team members, and escalate risks with a concrete decision and accountable owner.
+
+> **Accuracy:** The examples are synthetic; coaching routines and scorecard thresholds illustrate an approach rather than confidential employer performance. Prime-specific metrics have been published as separate documents and Python code; the five-page PBIP source has not yet been rebuilt to visualize the newly added project-delivery and leadership measures.
+
 ## Nscale OFCI Business Analytics — Supplier & Sourcing Extensions
 
 **Job-aligned extension:** In addition to the core cost-per-MW, CAPEX, EAC, OFCI/CFCI and vendor landed-cost analytics, this repository now models operational metrics expected in senior data-center equipment sourcing roles:
