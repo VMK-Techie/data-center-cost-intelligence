@@ -1,0 +1,12 @@
+category,metric,illustrative_target,owner_role,review_cadence,action_when_off_track
+Delivery,Request intake triage within SLA,90%,BI manager,Weekly,Review requirements clarity and workload
+Delivery,Accepted deliverables in planned cycle,85%,BI lead,Weekly,Replan dependencies and reduce WIP
+Delivery,Median cycle time,Track baseline before target,BI manager,Monthly,Inspect blocked transitions and scope changes
+Quality,Production defects per release,Track baseline before target,BI tech lead,Monthly,Improve peer reviews regression tests
+Reliability,Scheduled refresh success,99%,BI platform owner,Weekly,Root-cause platform pipeline and credential failures
+Governance,KPI definition coverage,100% for executive KPIs,BI manager + business owner,Monthly,Assign source owner and approve definitions
+Governance,Finance/PMO reconciliations complete,100% for published executive measures,BI lead + Finance,Monthly,Pause contested KPIs and resolve differences
+Stakeholders,First-review deliverable acceptance,Track baseline before target,Product owner,Monthly,Improve discovery prototypes and acceptance criteria
+Leadership,One-on-one coaching completion,90%,BI manager,Monthly,Reschedule protected coaching time
+Leadership,Actions closed by due date,90%,Action owners,Monthly,Escalate blockers and update commitments
+Portfolio,Overdue critical project risks,0 unowned critical risks,PMO + business leader,Weekly,Assign mitigation and escalate
