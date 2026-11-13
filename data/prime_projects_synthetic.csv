@@ -1,0 +1,5 @@
+project_id,project_name,commissioned_it_mw,approved_budget_usd,forecast_eac_usd,baseline_finish,forecast_finish,milestones_due,milestones_on_time,milestones_completed,last_status_update,open_critical_overdue_risks
+PRIME-DEMO-01,Western Campus,24,250000000,257000000,2027-03-31,2027-04-15,20,17,18,2026-11-10,2
+PRIME-DEMO-02,Central Campus,12,126000000,123000000,2027-06-30,2027-06-30,12,12,12,2026-11-12,0
+PRIME-DEMO-03,Northern Campus,18,183000000,190000000,2027-08-31,2027-09-20,15,11,13,2026-11-03,3
+PRIME-DEMO-04,Southern Campus,30,312000000,320000000,2027-12-31,2028-01-20,9,7,8,2026-11-11,1
