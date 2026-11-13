@@ -1,8 +1,4 @@
-# Prime Data Centers — Sr. Manager, Reporting & Data Analytics
-
-**Portfolio role alignment | Independent demonstration, not a claim of employment at Prime.**
-
-**Source job:** [Prime Data Centers LinkedIn posting 4489051665](https://www.linkedin.com/jobs/view/4489051665/) (reviewed 2026-11-13). The posting emphasizes executive BI reporting, enterprise KPI standards, project-level budget/schedule/milestone rollups, collaboration with Operations Excellence, PMO, Business Transformation and IT/Systems, plus identification/escalation of trends and risks.
+Executive BI reporting, enterprise KPI standards, project-level budget/schedule/milestone rollups, collaboration with Operations Excellence, PMO, Business Transformation and IT/Systems, plus identification/escalation of trends and risks.
 
 ## What this repository demonstrates
 
