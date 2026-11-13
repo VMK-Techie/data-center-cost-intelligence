@@ -1,6 +1,4 @@
-# Nscale OFCI business analytics — job-specific portfolio expansion
 
-**Target use case:** Senior Manager, OFCI Business Analytics at Nscale. This is an independent, synthetic training portfolio, **not** a representation of Nscale internal data, policies, KPIs, or system access. 
 
 ## Business questions hiring managers care about
 1. Which power and cooling suppliers are likely to miss project installation dates?
@@ -10,7 +8,7 @@
 5. Can executives trust the metrics: reconciliation, source freshness, and consistent definitions?
 
 ## New metrics and calculation logic
-See [30 additions](NSCALE_KPI_ADDITIONS.csv) and [Python reference formulas](../src/nscale_procurement_metrics.py).
+See [30 additions](KPI_ADDITIONS.csv) and [Python reference formulas](../src/procurement_metrics.py).
 The KPI catalog is intentionally **separate from the original 51-metric catalog** to make the job-specific additions auditable.
 
 | Domain | Metrics introduced | Management action |
